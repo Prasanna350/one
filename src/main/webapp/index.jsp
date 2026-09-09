@@ -478,7 +478,7 @@
             margin-top: 4px;
         }
 
-        /* ========== PRODUCTS (saree cards) ========== */
+        /* ========== PRODUCTS (saree cards with images) ========== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -504,14 +504,6 @@
             overflow: hidden;
             background: var(--surface);
             aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4.2rem;
-            color: var(--accent);
-        }
-        .product-card .img-wrap i {
-            opacity: 0.7;
         }
         .product-card .img-wrap img {
             width: 100%;
@@ -1112,4 +1104,424 @@
         </section>
 
         <!-- PRODUCTS -->
-        <section class="section" id="products" aria-labelledby="
+        <section class="section" id="products" aria-labelledby="prod-title">
+            <div class="container">
+                <div class="section-header">
+                    <div class="title-group">
+                        <h2 id="prod-title">Trending Now</h2>
+                        <p>Most loved sarees this season</p>
+                    </div>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="products-grid" id="productsGrid" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- FEATURE BANNER -->
+        <section class="section" style="padding-top:0;">
+            <div class="container">
+                <div class="feature-banner">
+                    <div class="feature-item"><i class="fas fa-hand-sparkles"></i><span>Handwoven with care</span></div>
+                    <div class="feature-item"><i class="fas fa-truck"></i><span>Free shipping over ₹999</span></div>
+                    <div class="feature-item"><i class="fas fa-undo-alt"></i><span>Easy 7-day returns</span></div>
+                    <div class="feature-item"><i class="fas fa-gem"></i><span>Authentic weaves</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" id="testimonials" aria-labelledby="test-title">
+            <div class="container">
+                <div class="section-header">
+                    <div class="title-group">
+                        <h2 id="test-title">What Our Customers Say</h2>
+                        <p>Real stories from real women</p>
+                    </div>
+                </div>
+                <div class="testimonials-scroll" id="testimonialsList"></div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="section" aria-labelledby="news-title">
+            <div class="container">
+                <div class="newsletter-wrap">
+                    <div class="text">
+                        <h3 id="news-title">Stay in the Loop</h3>
+                        <p>Get exclusive offers, early access & new arrivals</p>
+                    </div>
+                    <form id="newsletterForm" onsubmit="return false;">
+                        <input type="email" id="newsletterEmail" placeholder="Enter your email" aria-label="Email" required />
+                        <button class="btn" id="subscribeBtn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                        <div id="newsletterMsg"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="brand-col">
+                    <div class="brand">
+                        <i class="fas fa-saree"></i>
+                        <span>Eternal<span class="accent">Saree</span></span>
+                    </div>
+                    <p>Celebrating the art of draping since 2005. Authentic weaves, timeless elegance.</p>
+                    <div class="socials">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li><a href="#">New arrivals</a></li>
+                        <li><a href="#">Best sellers</a></li>
+                        <li><a href="#">Gift sets</a></li>
+                        <li><a href="#">Wedding collection</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Track order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size guide</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Follow</h5>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube" style="margin-right:8px;"></i>YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-pinterest" style="margin-right:8px;"></i>Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <i class="far fa-copyright"></i> 2026 Eternal Saree — woven with love.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        // ============================================================
+        // DATA
+        // ============================================================
+        const CATEGORIES = [
+            { id: 'silk', name: 'Silk', icon: 'fa-feather', count: 24 },
+            { id: 'cotton', name: 'Cotton', icon: 'fa-seedling', count: 18 },
+            { id: 'banarasi', name: 'Banarasi', icon: 'fa-crown', count: 16 },
+            { id: 'kanchipuram', name: 'Kanchipuram', icon: 'fa-temple', count: 22 },
+            { id: 'chanderi', name: 'Chanderi', icon: 'fa-star', count: 14 },
+            { id: 'designer', name: 'Designer', icon: 'fa-paint-brush', count: 20 }
+        ];
+
+        const PRODUCTS = [
+            { id: 1, title: 'Banarasi Silk Saree', price: 4299, oldPrice: 6500, rating: 5, reviews: 128, badge: 'New',
+                img: 'https://images.unsplash.com/photo-1624718621916-3fb29e3c1d96?auto=format&fit=crop&w=600&q=80',
+                category: 'Silk' },
+            { id: 2, title: 'Kanchipuram Temple Border', price: 5899, oldPrice: 8200, rating: 4, reviews: 86, badge: '',
+                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
+                category: 'Silk' },
+            { id: 3, title: 'Chanderi Cotton Saree', price: 2499, oldPrice: 3200, rating: 5, reviews: 214, badge: 'Sale',
+                img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80',
+                category: 'Cotton' },
+            { id: 4, title: 'Mysore Silk Crepe', price: 6999, oldPrice: 9500, rating: 4, reviews: 53, badge: '',
+                img: 'https://images.unsplash.com/photo-1627139946210-9fe3d9b0de1f?auto=format&fit=crop&w=600&q=80',
+                category: 'Silk' },
+            { id: 5, title: 'Paithani Peacock Motif', price: 7490, oldPrice: 10200, rating: 5, reviews: 42, badge: 'New',
+                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
+                category: 'Designer' },
+            { id: 6, title: 'Kota Doria Saree', price: 3199, oldPrice: 4600, rating: 5, reviews: 189, badge: '',
+                img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80',
+                category: 'Cotton' },
+            { id: 7, title: 'Tussar Silk Saree', price: 3899, oldPrice: 5200, rating: 4, reviews: 67, badge: 'Sale',
+                img: 'https://images.unsplash.com/photo-1624718621916-3fb29e3c1d96?auto=format&fit=crop&w=600&q=80',
+                category: 'Silk' },
+            { id: 8, title: 'Handloom Ikat Saree', price: 4599, rating: 5, reviews: 156, badge: '',
+                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
+                category: 'Designer' }
+        ];
+
+        const TESTIMONIALS = [{
+            name: 'Ananya Sharma',
+            role: 'Verified Buyer',
+            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80',
+            text: 'The Banarasi silk is absolutely stunning! The zari work is exquisite and the fabric feels premium.',
+            stars: 5
+        }, {
+            name: 'Priya Mehta',
+            role: 'Frequent Shopper',
+            avatar: 'https://images.unsplash.com/photo-1494790108378-be9c29b29330?auto=format&fit=crop&w=80&q=80',
+            text: 'I love the Chanderi cotton saree — lightweight and perfect for summer. The colors are even more beautiful in person.',
+            stars: 5
+        }, {
+            name: 'Sneha Reddy',
+            role: 'Wedding Guest',
+            avatar: 'https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=80&q=80',
+            text: 'Ordered the Kanchipuram for my sister\'s wedding. The temple border is magnificent and the quality is top-notch.',
+            stars: 5
+        }, {
+            name: 'Kavya Nair',
+            role: 'Designer',
+            avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80',
+            text: 'The Paithani saree is a masterpiece. The peacock motifs are intricately woven and it drapes like a dream.',
+            stars: 5
+        }];
+
+        // ============================================================
+        // STATE
+        // ============================================================
+        let cartCount = 0;
+
+        // ============================================================
+        // DOM REFS
+        // ============================================================
+        const categoriesGrid = document.getElementById('categoriesGrid');
+        const productsGrid = document.getElementById('productsGrid');
+        const cartCountEl = document.getElementById('cartCount');
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const newsletterForm = document.getElementById('newsletterForm');
+        const newsletterEmail = document.getElementById('newsletterEmail');
+        const newsletterMsg = document.getElementById('newsletterMsg');
+        const testimonialsList = document.getElementById('testimonialsList');
+
+        // ============================================================
+        // RENDER FUNCTIONS
+        // ============================================================
+        function renderCategories() {
+            categoriesGrid.innerHTML = '';
+            CATEGORIES.forEach(cat => {
+                const el = document.createElement('div');
+                el.className = 'cat-card';
+                el.innerHTML = `
+                    <div class="icon-wrap"><i class="fas ${cat.icon}"></i></div>
+                    <h4>${cat.name}</h4>
+                    <div class="count">${cat.count} items</div>
+                `;
+                el.addEventListener('click', () => {
+                    searchInput.value = cat.name;
+                    filterProducts(cat.name);
+                    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+                categoriesGrid.appendChild(el);
+            });
+        }
+
+        function renderProducts(list) {
+            productsGrid.innerHTML = '';
+            if (!list.length) {
+                productsGrid.innerHTML =
+                `<p style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">No sarees found.</p>`;
+                return;
+            }
+            list.forEach(p => {
+                const el = document.createElement('article');
+                el.className = 'product-card';
+                const badgeClass = p.badge === 'Sale' ? 'sale' : '';
+                const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
+                const oldPriceHtml = p.oldPrice ? `<span class="old-price">₹${p.oldPrice.toLocaleString()}</span>` :
+                '';
+                const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
+                el.innerHTML = `
+                    <div class="img-wrap">
+                        <img src="${p.img}" alt="${escapeHtml(p.title)}" loading="lazy">
+                        ${badgeHtml}
+                        <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="body">
+                        <div class="category-tag">${p.category}</div>
+                        <h5>${escapeHtml(p.title)}</h5>
+                        <div class="price-row">
+                            <span class="price">₹${p.price.toLocaleString()}</span>
+                            ${oldPriceHtml}
+                        </div>
+                        <div class="rating">
+                            ${stars} <span>(${p.reviews})</span>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <button class="add-btn" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Add</button>
+                    </div>
+                `;
+                productsGrid.appendChild(el);
+            });
+
+            // Add to cart listeners
+            productsGrid.querySelectorAll('.add-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const id = Number(this.dataset.id);
+                    addToCart(id, this);
+                });
+            });
+        }
+
+        function renderTestimonials() {
+            testimonialsList.innerHTML = '';
+            TESTIMONIALS.forEach(t => {
+                const stars = '★'.repeat(t.stars) + '☆'.repeat(5 - t.stars);
+                const el = document.createElement('div');
+                el.className = 'testimonial-card';
+                el.innerHTML = `
+                    <div class="stars">${stars}</div>
+                    <blockquote>“${escapeHtml(t.text)}”</blockquote>
+                    <div class="author">
+                        <img class="avatar" src="${t.avatar}" alt="${escapeHtml(t.name)}" loading="lazy">
+                        <div>
+                            <div class="name">${escapeHtml(t.name)}</div>
+                            <div class="role">${escapeHtml(t.role)}</div>
+                        </div>
+                    </div>
+                `;
+                testimonialsList.appendChild(el);
+            });
+        }
+
+        // ============================================================
+        // UTILITY FUNCTIONS
+        // ============================================================
+        function escapeHtml(text) {
+            return String(text).replace(/[&<>"']/g, s => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            } [s]));
+        }
+
+        function updateCartCount() {
+            cartCountEl.textContent = cartCount;
+            cartCountEl.style.transform = 'scale(1.3)';
+            setTimeout(() => cartCountEl.style.transform = 'scale(1)', 200);
+        }
+
+        function addToCart(productId, btnEl) {
+            const p = PRODUCTS.find(x => x.id === productId);
+            if (!p) return;
+            cartCount++;
+            updateCartCount();
+
+            if (btnEl) {
+                const orig = btnEl.innerHTML;
+                btnEl.innerHTML = '<i class="fas fa-check"></i> Added';
+                btnEl.classList.add('added');
+                setTimeout(() => {
+                    btnEl.innerHTML = orig;
+                    btnEl.classList.remove('added');
+                }, 1500);
+            }
+            const cartBtn = document.getElementById('cartBtn');
+            cartBtn.style.color = 'var(--accent)';
+            setTimeout(() => cartBtn.style.color = '', 400);
+        }
+
+        function filterProducts(query) {
+            const q = String(query || '').trim().toLowerCase();
+            if (!q) {
+                renderProducts(PRODUCTS);
+                return;
+            }
+            const filtered = PRODUCTS.filter(p =>
+                p.title.toLowerCase().includes(q) ||
+                p.category.toLowerCase().includes(q)
+            );
+            renderProducts(filtered);
+        }
+
+        // ============================================================
+        // EVENT BINDINGS
+        // ============================================================
+
+        // Search
+        searchBtn.addEventListener('click', () => filterProducts(searchInput.value));
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') filterProducts(e.target.value);
+        });
+
+        // Mobile menu
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.style.display === 'block';
+            mobileMenu.style.display = isOpen ? 'none' : 'block';
+            mobileToggle.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.style.display = 'none';
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Hero buttons
+        document.getElementById('shopNow').addEventListener('click', () => {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        document.getElementById('exploreDeals').addEventListener('click', () => {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // Cart button click
+        document.getElementById('cartBtn').addEventListener('click', () => {
+            alert(`🛒 Your cart has ${cartCount} item${cartCount !== 1 ? 's' : ''}.`);
+        });
+
+        // Newsletter
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterEmail.value.trim();
+            if (!email || !email.includes('@')) {
+                newsletterMsg.textContent = 'Please enter a valid email address.';
+                newsletterMsg.style.color = '#ffb3b3';
+                newsletterMsg.style.display = 'block';
+                return;
+            }
+            newsletterMsg.textContent = '🎉 Thanks for subscribing!';
+            newsletterMsg.style.color = '#a8e6cf';
+            newsletterMsg.style.display = 'block';
+            newsletterEmail.value = '';
+            setTimeout(() => {
+                newsletterMsg.style.display = 'none';
+            }, 3500);
+        });
+
+        // Year in footer
+        document.getElementById('year')?.remove();
+        const yearSpan = document.createElement('span');
+        yearSpan.textContent = new Date().getFullYear();
+        document.querySelector('.footer-bottom')?.prepend(yearSpan);
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        renderCategories();
+        renderProducts(PRODUCTS);
+        renderTestimonials();
+        updateCartCount();
+
+        // Close mobile menu on resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileMenu.style.display = 'none';
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        console.log('✨ Eternal Saree — timeless elegance loaded.');
+    </script>
+
+</body>
+</html>
