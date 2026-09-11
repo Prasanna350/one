@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -485,7 +486,7 @@ input,select{border:1px solid var(--line)!important;background:#fffdf8!important
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="brand" href="#"><span class="brand-mark"><i class="fa-solid fa-feather-pointed"></i></span><span class="brand-name">Eternal <span>Jewellery</span></span></a>
-        <p>Indian textiles, thoughtfully curated for women who want tradition to feel effortless and current.</p>
+        <p>Indian textilesss, thoughtfully curated for women who want tradition to feel effortless and current.</p>
         <div class="socials">
           <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
