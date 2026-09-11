@@ -407,7 +407,7 @@ input,select{border:1px solid var(--line)!important;background:#fffdf8!important
 
     <section class="intro">
       <div>
-        <div class="kicker">Made to be remembered</div>
+        <div class="kicker">Made to be remembered testing without version change</div>
         <h2>Every weave has a story.</h2>
       </div>
       <p>Explore classic silhouettes, rich textures and contemporary layers selected for celebrations, everyday elegance and everything in between.</p>
