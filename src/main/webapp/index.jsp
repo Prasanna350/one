@@ -1,1527 +1,646 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Eternal Saree · timeless weaves</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eternal Jewels — Contemporary Indian Drapes</title>
+  <meta name="description" content="Eternal Jewels — handpicked Indian jewellerys with timeless style.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <style>
+    :root{
+      --ink:#211b1d;
+      --muted:#766d70;
+      --cream:#f8f3ed;
+      --paper:#fffdf9;
+      --rose:#a85661;
+      --rose-dark:#873f4a;
+      --rose-soft:#ead4d5;
+      --gold:#b58a48;
+      --line:#e9dfd7;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(43,28,31,.09);
+      --shadow-sm:0 8px 25px rgba(43,28,31,.07);
+      --radius:22px;
+      --max:1220px;
+    }
 
-    <style>
-        /* ========== ROOT VARIABLES (saree-inspired palette) ========== */
-        :root {
-            --bg: #fcf6f0;
-            --bg-card: #ffffff;
-            --primary: #2d1f1a;
-            --primary-light: #4d332b;
-            --accent: #a34f39;
-            --accent-light: #f0d5c9;
-            --accent-dark: #8b3f2b;
-            --muted: #6b4f43;
-            --muted-light: #a08070;
-            --surface: #f3eae4;
-            --success: #2a9d8f;
-            --warning: #e9c46a;
-            --radius: 20px;
-            --radius-sm: 12px;
-            --shadow: 0 8px 24px rgba(26, 26, 46, 0.04);
-            --shadow-hover: 0 16px 48px rgba(163, 79, 57, 0.10);
-            --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            --container: 1240px;
-        }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",system-ui,sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{border:0;background:none;cursor:pointer}
+    img{display:block;width:100%}
+    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
 
-        /* ========== RESET & BASE ========== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--primary);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        img {
-            display: block;
-            max-width: 100%;
-        }
-        button {
-            cursor: pointer;
-            font-family: inherit;
-            border: none;
-            background: none;
-            color: inherit;
-        }
-        input {
-            font-family: inherit;
-        }
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:100;
+      background:rgba(255,253,249,.9);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(33,27,29,.07);
+    }
+    .header-inner{
+      min-height:76px;display:flex;align-items:center;gap:28px;
+    }
+    .brand{display:flex;align-items:center;gap:10px;white-space:nowrap}
+    .brand-mark{
+      width:40px;height:40px;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--ink);color:#f5dfb0;
+      font-size:17px;
+    }
+    .brand-name{
+      font-family:"Playfair Display",serif;font-size:22px;font-weight:700;
+      letter-spacing:-.3px;
+    }
+    .brand-name span{color:var(--rose)}
+    nav{margin-left:auto}
+    nav ul{display:flex;list-style:none;gap:6px}
+    nav a{
+      padding:9px 13px;border-radius:999px;font-size:14px;color:var(--muted);
+      transition:.2s;
+    }
+    nav a:hover,nav a.active{background:#f0e6df;color:var(--ink)}
+    .header-tools{display:flex;align-items:center;gap:8px}
+    .search{
+      width:190px;height:42px;border:1px solid var(--line);
+      background:var(--paper);border-radius:999px;
+      display:flex;align-items:center;padding:0 14px;gap:8px;
+    }
+    .search input{width:100%;border:0;outline:0;background:transparent;font-size:13px}
+    .search i{color:var(--muted);font-size:13px}
+    .icon-btn{
+      width:42px;height:42px;border:1px solid var(--line);
+      border-radius:50%;display:grid;place-items:center;color:var(--ink);
+      background:var(--paper);transition:.2s;position:relative;
+    }
+    .icon-btn:hover{background:var(--ink);color:white;transform:translateY(-1px)}
+    .cart-badge{
+      position:absolute;right:-2px;top:-3px;width:19px;height:19px;
+      display:grid;place-items:center;border-radius:50%;background:var(--rose);
+      color:white;font-size:10px;font-weight:700;border:2px solid var(--paper)
+    }
+    .mobile-btn{display:none}
 
-        .container {
-            width: 100%;
-            max-width: var(--container);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    /* Hero */
+    .hero{
+      min-height:650px;position:relative;overflow:hidden;
+      margin-top:20px;border-radius:30px;background:#3b2428;
+      display:flex;align-items:center;
+    }
+    .hero-image{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(90deg,rgba(28,19,21,.9) 0%,rgba(28,19,21,.68) 42%,rgba(28,19,21,.18) 100%),
+        url("https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=1200") center/cover;
+    }
+    .hero-content{position:relative;z-index:1;max-width:660px;padding:90px 0}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;color:#f4dcae;
+      font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+      margin-bottom:20px;
+    }
+    .eyebrow:before{content:"";width:32px;height:1px;background:#f4dcae}
+    .hero h1{
+      font-family:"Playfair Display",serif;color:#fff;
+      font-size:clamp(46px,6vw,76px);line-height:1.02;font-weight:600;
+      letter-spacing:-2px;margin-bottom:20px;
+    }
+    .hero h1 em{color:#efc8c9;font-style:normal}
+    .hero p{color:rgba(255,255,255,.82);font-size:17px;max-width:540px;line-height:1.75;margin-bottom:32px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 22px;border-radius:999px;font-weight:700;font-size:14px;
+      transition:.22s;
+    }
+    .btn-primary{background:#fff;color:var(--ink)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.38);color:white;background:rgba(255,255,255,.06)}
+    .btn-ghost:hover{background:rgba(255,255,255,.14)}
+    .hero-note{
+      position:absolute;right:28px;bottom:28px;z-index:2;
+      color:white;background:rgba(24,17,19,.45);backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:12px 15px;
+      font-size:12px;
+    }
 
-        /* ========== UTILITIES ========== */
-        .muted {
-            color: var(--muted);
-        }
-        .text-center {
-            text-align: center;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
+    /* Intro */
+    .intro{padding:82px 0 40px;display:grid;grid-template-columns:1fr 1.8fr;gap:70px;align-items:end}
+    .kicker{font-size:12px;color:var(--rose);font-weight:800;letter-spacing:1.6px;text-transform:uppercase}
+    .intro h2,.section-title h2{
+      font-family:"Playfair Display",serif;font-weight:600;
+      font-size:clamp(34px,4vw,52px);line-height:1.08;letter-spacing:-1px;
+    }
+    .intro p{color:var(--muted);font-size:16px;max-width:650px;line-height:1.8}
 
-        /* ========== BUTTONS ========== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 30px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 15px;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(163, 79, 57, 0.30);
-        }
-        .btn-secondary {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-        }
-        .btn-secondary:hover {
-            background: var(--primary-light);
-            border-color: var(--primary-light);
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border-color: rgba(45, 31, 26, 0.20);
-        }
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-        }
-        .btn-ghost {
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-        .btn-sm {
-            padding: 8px 18px;
-            font-size: 13px;
-        }
+    /* Categories */
+    .section{padding:38px 0 82px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
+    .section-title p{color:var(--muted);margin-top:7px;font-size:14px}
+    .view-all{font-weight:700;font-size:13px;color:var(--rose);white-space:nowrap}
+    .view-all i{margin-left:5px;transition:.2s}
+    .view-all:hover i{transform:translateX(4px)}
+    .category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .category{
+      position:relative;height:190px;border-radius:20px;overflow:hidden;
+      background:#ddd;cursor:pointer;box-shadow:var(--shadow-sm)
+    }
+    .category img{height:100%;object-fit:cover;transition:.45s}
+    .category:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,transparent 25%,rgba(20,14,16,.78));
+    }
+    .category:hover img{transform:scale(1.06)}
+    .category-info{position:absolute;z-index:1;left:15px;right:15px;bottom:14px;color:white}
+    .category-info h3{font-family:"Playfair Display",serif;font-size:19px}
+    .category-info span{font-size:11px;opacity:.78}
 
-        /* ========== HEADER ========== */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 249, 244, 0.94);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(45, 31, 26, 0.06);
-        }
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px 0;
-            min-height: 68px;
-        }
+    /* Products */
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .product{
+      background:var(--paper);border:1px solid var(--line);border-radius:22px;
+      overflow:hidden;transition:.25s;position:relative;
+    }
+    .product:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .product-media{height:390px;position:relative;overflow:hidden;background:#eee}
+    .product-media img{height:100%;object-fit:cover;transition:.45s}
+    .product:hover .product-media img{transform:scale(1.04)}
+    .pill{
+      position:absolute;top:13px;left:13px;background:var(--ink);color:white;
+      border-radius:999px;padding:6px 10px;font-size:10px;font-weight:800;
+      letter-spacing:.5px;text-transform:uppercase;
+    }
+    .pill.sale{background:#d6a548;color:#231b13}
+    .wish{
+      position:absolute;top:12px;right:12px;width:38px;height:38px;
+      border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;
+      color:var(--ink);transition:.2s;
+    }
+    .wish:hover{color:var(--rose);transform:scale(1.06)}
+    .product-body{padding:17px 17px 10px}
+    .product-category{font-size:10px;color:var(--muted);font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    .product h3{font-family:"Playfair Display",serif;font-size:20px;line-height:1.2;margin:5px 0 9px}
+    .price-row{display:flex;align-items:center;gap:9px}
+    .price{font-weight:800;color:var(--rose);font-size:17px}
+    .old{color:#aaa;text-decoration:line-through;font-size:12px}
+    .rating{margin-top:7px;color:var(--gold);font-size:12px}
+    .rating span{color:var(--muted);margin-left:4px}
+    .add{
+      margin:8px 17px 17px;width:calc(100% - 34px);
+      background:var(--ink);color:#fff;padding:12px;border-radius:12px;
+      font-weight:700;font-size:13px;transition:.2s;
+    }
+    .add:hover{background:var(--rose)}
+    .add.added{background:#2f806f}
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 700;
-            font-size: 22px;
-            letter-spacing: -0.3px;
-            color: var(--primary);
-            flex-shrink: 0;
-        }
-        .brand .accent {
-            color: var(--accent);
-            font-weight: 800;
-        }
-        .brand i {
-            font-size: 24px;
-            color: var(--accent);
-        }
+    /* Story banner */
+    .story{
+      margin:0 0 80px;border-radius:28px;overflow:hidden;min-height:410px;
+      position:relative;background:#2d2022;display:flex;align-items:center;
+    }
+    .story-image{
+      position:absolute;inset:0 0 0 45%;
+      background:url("https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=900") center/cover;
+    }
+    .story:before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(90deg,#2d2022 0%,#2d2022 39%,rgba(45,32,34,.2) 72%,rgba(45,32,34,.1));
+    }
+    .story-content{position:relative;z-index:1;padding:65px;max-width:620px;color:white}
+    .story-content .kicker{color:#e7c988}
+    .story-content h2{font-family:"Playfair Display",serif;font-size:48px;line-height:1.08;margin:12px 0 15px}
+    .story-content p{color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:25px}
 
-        nav.main-nav ul {
-            display: flex;
-            gap: 4px;
-            list-style: none;
-            align-items: center;
-        }
-        nav.main-nav li a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 18px;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--muted);
-            transition: var(--transition);
-        }
-        nav.main-nav li a:hover,
-        nav.main-nav li a.active {
-            background: var(--surface);
-            color: var(--primary);
-        }
-        nav.main-nav li a i {
-            font-size: 14px;
-        }
+    /* Benefits */
+    .benefits{
+      display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);margin-bottom:80px;
+    }
+    .benefit{padding:25px 20px;display:flex;gap:13px;align-items:center;border-right:1px solid var(--line)}
+    .benefit:last-child{border-right:0}
+    .benefit i{font-size:20px;color:var(--rose)}
+    .benefit strong{font-size:13px;display:block}.benefit span{font-size:11px;color:var(--muted)}
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-        }
-        .header-actions .icon-btn {
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            font-size: 18px;
-            color: var(--muted);
-            transition: var(--transition);
-            position: relative;
-        }
-        .header-actions .icon-btn:hover {
-            background: var(--surface);
-            color: var(--primary);
-        }
+    /* Testimonials */
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review{background:var(--paper);border:1px solid var(--line);padding:25px;border-radius:20px}
+    .review-stars{color:var(--gold);letter-spacing:2px;font-size:12px;margin-bottom:14px}
+    .review p{font-family:"Playfair Display",serif;font-size:18px;line-height:1.5;margin-bottom:20px}
+    .review-user{display:flex;align-items:center;gap:10px}
+    .avatar{width:42px;height:42px;border-radius:50%;object-fit:cover}
+    .review-user strong{font-size:12px;display:block}.review-user span{font-size:11px;color:var(--muted)}
 
-        .cart-wrap {
-            position: relative;
-        }
-        .cart-count {
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 11px;
-            font-weight: 700;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            border: 2px solid #fff;
-        }
+    /* Newsletter */
+    .newsletter{
+      background:var(--rose);color:white;border-radius:25px;padding:48px 55px;
+      display:flex;align-items:center;justify-content:space-between;gap:30px;
+    }
+    .newsletter h2{font-family:"Playfair Display",serif;font-size:36px}
+    .newsletter p{opacity:.78;margin-top:5px;font-size:13px}
+    .newsletter form{display:flex;gap:8px;max-width:470px;width:100%}
+    .newsletter input{
+      flex:1;min-width:0;border:0;outline:0;border-radius:999px;padding:14px 18px;
+      background:rgba(255,255,255,.14);color:white;
+    }
+    .newsletter input::placeholder{color:rgba(255,255,255,.65)}
+    .newsletter .btn{background:white;color:var(--ink);white-space:nowrap}
+    #newsletterMsg{font-size:12px;margin-top:7px}
 
-        .search-wrap {
-            display: flex;
-            align-items: center;
-            background: var(--surface);
-            border-radius: 999px;
-            padding: 0 16px 0 18px;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            min-width: 200px;
-        }
-        .search-wrap:focus-within {
-            border-color: var(--accent);
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(163, 79, 57, 0.08);
-        }
-        .search-wrap input {
-            border: 0;
-            background: transparent;
-            outline: none;
-            width: 100%;
-            padding: 10px 0;
-            font-size: 14px;
-            color: var(--primary);
-        }
-        .search-wrap input::placeholder {
-            color: var(--muted-light);
-        }
-        .search-wrap button {
-            padding: 8px 0 8px 10px;
-            color: var(--muted);
-            font-size: 15px;
-            transition: var(--transition);
-        }
-        .search-wrap button:hover {
-            color: var(--accent);
-        }
+    /* Footer */
+    footer{padding:70px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px;padding-bottom:45px}
+    .footer-brand p{color:var(--muted);font-size:13px;max-width:310px;line-height:1.7;margin-top:13px}
+    .socials{display:flex;gap:8px;margin-top:17px}
+    .socials a{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:13px;transition:.2s}
+    .socials a:hover{background:var(--ink);color:white}
+    footer h4{font-size:12px;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+    footer ul{list-style:none;display:grid;gap:8px}
+    footer li a{font-size:12px;color:var(--muted)}footer li a:hover{color:var(--rose)}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:20px;color:#9b9292;font-size:11px;display:flex;justify-content:space-between}
 
-        .mobile-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            font-size: 20px;
-            background: var(--surface);
-            color: var(--primary);
-            transition: var(--transition);
-        }
-        .mobile-toggle:hover {
-            background: var(--accent-light);
-        }
+    .empty{grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)}
+    .toast{
+      position:fixed;right:20px;bottom:20px;z-index:200;background:var(--ink);color:white;
+      padding:13px 17px;border-radius:12px;font-size:13px;box-shadow:var(--shadow);
+      opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s;
+    }
+    .toast.show{opacity:1;transform:translateY(0)}
 
-        #mobileMenu {
-            display: none;
-            background: #fffaf6;
-            border-top: 1px solid rgba(45, 31, 26, 0.04);
-            padding: 12px 0 20px;
-        }
-        #mobileMenu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        #mobileMenu ul li a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: var(--radius-sm);
-            font-weight: 500;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-        #mobileMenu ul li a:hover {
-            background: var(--surface);
-        }
-        #mobileMenu ul li a i {
-            width: 22px;
-            color: var(--muted);
-        }
+    @media(max-width:1050px){
+      nav{display:none}.mobile-btn{display:grid}
+      .header-inner{justify-content:space-between}.search{width:170px}
+      .category-grid{grid-template-columns:repeat(3,1fr)}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .product-media{height:420px}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .benefit:nth-child(2){border-right:0}.benefit:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .reviews{grid-template-columns:1fr}
+      .newsletter{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:680px){
+      .container{width:min(var(--max),calc(100% - 24px))}
+      .header-inner{min-height:64px;gap:8px}.brand-name{font-size:19px}.brand-mark{width:35px;height:35px}
+      .search{width:42px;padding:0;justify-content:center}.search input{display:none}
+      .search i{font-size:14px}.icon-btn{width:38px;height:38px}.header-tools{gap:5px}
+      .hero{min-height:560px;margin-top:12px;border-radius:22px}
+      .hero-image{background-position:62% center}
+      .hero-content{padding:65px 22px}.hero h1{font-size:48px;letter-spacing:-1.5px}
+      .hero p{font-size:14px}.hero-note{display:none}
+      .intro{grid-template-columns:1fr;gap:16px;padding:58px 0 20px}
+      .section{padding:28px 0 60px}.section-head{align-items:flex-start}
+      .category-grid{grid-template-columns:repeat(2,1fr);gap:10px}.category{height:175px}
+      .products{grid-template-columns:1fr 1fr;gap:10px}.product-media{height:290px}
+      .product-body{padding:13px 12px 8px}.product h3{font-size:16px}.price{font-size:14px}
+      .add{width:calc(100% - 24px);margin:6px 12px 12px;padding:10px;font-size:12px}
+      .story{min-height:520px;margin-bottom:55px}.story-image{inset:42% 0 0}
+      .story:before{background:linear-gradient(180deg,#2d2022 0%,#2d2022 43%,rgba(45,32,34,.15))}
+      .story-content{padding:35px 24px;align-self:flex-start}.story-content h2{font-size:36px}
+      .benefits{grid-template-columns:1fr;margin-bottom:55px}.benefit{border-right:0!important;border-bottom:1px solid var(--line)!important}.benefit:last-child{border-bottom:0!important}
+      .newsletter{padding:32px 22px}.newsletter h2{font-size:30px}.newsletter form{flex-direction:column}
+      .newsletter .btn{width:100%}.footer-grid{grid-template-columns:1fr 1fr;gap:30px}.footer-brand{grid-column:1/-1}
+      .footer-bottom{display:block;line-height:1.7}
+    }
+  </style>
 
-        /* ========== HERO ========== */
-        .hero {
-            position: relative;
-            display: flex;
-            align-items: center;
-            min-height: 460px;
-            padding: 60px 0;
-            border-radius: var(--radius);
-            overflow: hidden;
-            margin: 20px 24px 0;
-            background: linear-gradient(135deg, #2d1f1a 0%, #4d332b 100%);
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://images.unsplash.com/photo-1601489830305-65dcf5c42b3c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            opacity: 0.30;
-            z-index: 0;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-        .hero .badge {
-            display: inline-block;
-            background: rgba(163, 79, 57, 0.20);
-            color: #f0d5c9;
-            padding: 4px 16px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.15;
-            max-width: 640px;
-            margin-bottom: 16px;
-        }
-        .hero p {
-            color: rgba(255, 255, 255, 0.80);
-            font-size: 17px;
-            max-width: 500px;
-            margin-bottom: 28px;
-            line-height: 1.6;
-        }
-        .hero .actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+<style id="jewellery-theme">
+:root{
+  --bg:#fbf8f1;
+  --surface:#fffdf8;
+  --ink:#17251f;
+  --muted:#6f756e;
+  --green:#173c32;
+  --green-2:#285b4d;
+  --gold:#b28a3b;
+  --gold-light:#d8bc78;
+  --line:#e7dfce;
+  --shadow:0 18px 45px rgba(36,48,40,.10);
+}
+body{background:var(--bg)!important;color:var(--ink)!important}
+header,.nav,.site-header{background:rgba(251,248,241,.96)!important;border-bottom:1px solid var(--line)!important}
+.logo,.brand{color:var(--green)!important}
+.logo span,.brand span,.accent{color:var(--gold)!important}
+a{color:inherit}
+button,.btn,.cta{background:var(--green)!important;color:#fff!important;border-color:var(--green)!important}
+button:hover,.btn:hover,.cta:hover{background:var(--gold)!important;border-color:var(--gold)!important}
+.hero{background:linear-gradient(120deg,#173c32 0%,#285b4d 58%,#b28a3b 150%)!important;color:#fff!important}
+.hero h1,.hero h2,.hero p{color:#fff!important}
+.section-title,.section-heading,h2,h3{color:var(--green)!important}
+.card,.product-card,.category-card,.testimonial,.newsletter,.story-card{background:var(--surface)!important;border:1px solid var(--line)!important;box-shadow:var(--shadow)!important}
+.product-card:hover,.category-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(36,48,40,.15)!important}
+.price,.product-price{color:var(--gold)!important}
+.badge,.tag{background:#f3ead6!important;color:var(--green)!important}
+.newsletter{background:var(--green)!important;color:#fff!important}
+.newsletter h2,.newsletter p{color:#fff!important}
+footer{background:#102b24!important;color:#e9e2d2!important}
+footer a{color:#e9e2d2!important}
+input,select{border:1px solid var(--line)!important;background:#fffdf8!important}
+.icon-btn:hover{color:var(--gold)!important}
+.gold-rule{background:var(--gold)!important}
+</style>
 
-        /* ========== SECTION ========== */
-        .section {
-            padding: 56px 0;
-        }
-        .section-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-        .section-header .title-group h2 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-        }
-        .section-header .title-group p {
-            color: var(--muted);
-            margin-top: 4px;
-            font-size: 15px;
-        }
-        .section-header .view-all {
-            font-weight: 600;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-        .section-header .view-all:hover {
-            gap: 12px;
-            color: var(--accent-dark);
-        }
-
-        /* ========== CATEGORIES ========== */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-        }
-        .cat-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 24px 16px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-        .cat-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-light);
-        }
-        .cat-card .icon-wrap {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--accent-light);
-            display: grid;
-            place-items: center;
-            margin: 0 auto 12px;
-            font-size: 24px;
-            color: var(--accent);
-            transition: var(--transition);
-        }
-        .cat-card:hover .icon-wrap {
-            background: var(--accent);
-            color: #fff;
-        }
-        .cat-card h4 {
-            font-size: 15px;
-            font-weight: 600;
-        }
-        .cat-card .count {
-            font-size: 13px;
-            color: var(--muted);
-            margin-top: 4px;
-        }
-
-        /* ========== PRODUCTS (saree cards with images) ========== */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .product-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            border: 2px solid transparent;
-        }
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-light);
-        }
-        .product-card .img-wrap {
-            position: relative;
-            overflow: hidden;
-            background: var(--surface);
-            aspect-ratio: 1 / 1;
-        }
-        .product-card .img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        .product-card:hover .img-wrap img {
-            transform: scale(1.04);
-        }
-        .product-card .badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--accent);
-            color: #fff;
-            padding: 4px 14px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-        .product-card .badge.sale {
-            background: var(--warning);
-            color: var(--primary);
-        }
-        .product-card .wish-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.90);
-            display: grid;
-            place-items: center;
-            font-size: 16px;
-            color: var(--muted);
-            transition: var(--transition);
-            backdrop-filter: blur(4px);
-        }
-        .product-card .wish-btn:hover {
-            background: #fff;
-            color: var(--accent);
-            transform: scale(1.10);
-        }
-        .product-card .body {
-            padding: 16px 18px 10px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .product-card .body .category-tag {
-            font-size: 12px;
-            color: var(--muted-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-        .product-card .body h5 {
-            font-size: 15px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        .product-card .body .price-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 4px;
-        }
-        .product-card .body .price {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--accent);
-        }
-        .product-card .body .old-price {
-            color: var(--muted-light);
-            text-decoration: line-through;
-            font-size: 14px;
-        }
-        .product-card .body .rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 13px;
-            color: #d4a373;
-        }
-        .product-card .body .rating span {
-            color: var(--muted);
-            font-weight: 400;
-        }
-        .product-card .footer {
-            padding: 0 18px 18px;
-            display: flex;
-            gap: 10px;
-        }
-        .product-card .footer .add-btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            background: var(--primary);
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .product-card .footer .add-btn:hover {
-            background: var(--accent);
-            transform: scale(1.02);
-        }
-        .product-card .footer .add-btn.added {
-            background: var(--success);
-        }
-
-        /* ========== FEATURE BANNER ========== */
-        .feature-banner {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-            background: #fff6ef;
-            border-radius: 80px 20px 80px 20px;
-            padding: 32px 24px;
-            margin: 16px 0 8px;
-            border: 1px solid #efded3;
-        }
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .feature-item i {
-            font-size: 2rem;
-            color: var(--accent);
-            width: 48px;
-            text-align: center;
-        }
-        .feature-item span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--primary);
-        }
-
-        /* ========== TESTIMONIALS ========== */
-        .testimonials-scroll {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 8px 4px 16px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .testimonials-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-        .testimonials-scroll::-webkit-scrollbar-thumb {
-            background: var(--accent-light);
-            border-radius: 999px;
-        }
-        .testimonial-card {
-            flex: 0 0 320px;
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 24px 26px;
-            box-shadow: var(--shadow);
-            scroll-snap-align: start;
-            transition: var(--transition);
-        }
-        .testimonial-card:hover {
-            box-shadow: var(--shadow-hover);
-        }
-        .testimonial-card .stars {
-            color: #d4a373;
-            font-size: 16px;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        .testimonial-card blockquote {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--primary);
-            margin-bottom: 14px;
-            font-style: italic;
-        }
-        .testimonial-card .author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .testimonial-card .author .avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--surface);
-        }
-        .testimonial-card .author .name {
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .testimonial-card .author .role {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        /* ========== NEWSLETTER ========== */
-        .newsletter-wrap {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: var(--radius);
-            padding: 48px 56px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-        .newsletter-wrap .text h3 {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .newsletter-wrap .text p {
-            opacity: 0.75;
-            font-size: 15px;
-        }
-        .newsletter-wrap form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            flex: 1;
-            max-width: 480px;
-        }
-        .newsletter-wrap form input {
-            flex: 1;
-            min-width: 200px;
-            padding: 14px 20px;
-            border-radius: 999px;
-            border: 0;
-            font-size: 15px;
-            background: rgba(255, 255, 255, 0.12);
-            color: #fff;
-            transition: var(--transition);
-            outline: 2px solid transparent;
-        }
-        .newsletter-wrap form input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        .newsletter-wrap form input:focus {
-            outline-color: var(--accent);
-            background: rgba(255, 255, 255, 0.18);
-        }
-        .newsletter-wrap form .btn {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-            padding: 14px 32px;
-        }
-        .newsletter-wrap form .btn:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-        }
-        #newsletterMsg {
-            margin-top: 12px;
-            font-size: 14px;
-            opacity: 0.9;
-            width: 100%;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            margin-top: 16px;
-            padding: 44px 0 28px;
-            border-top: 1px solid rgba(45, 31, 26, 0.04);
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 32px;
-        }
-        .footer-grid .brand-col .brand {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        .footer-grid .brand-col p {
-            color: var(--muted);
-            font-size: 14px;
-            max-width: 300px;
-            line-height: 1.6;
-        }
-        .footer-grid .brand-col .socials {
-            display: flex;
-            gap: 10px;
-            margin-top: 14px;
-        }
-        .footer-grid .brand-col .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--surface);
-            display: grid;
-            place-items: center;
-            color: var(--muted);
-            transition: var(--transition);
-            font-size: 16px;
-        }
-        .footer-grid .brand-col .socials a:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-        .footer-grid .col h5 {
-            font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-        .footer-grid .col ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .footer-grid .col ul li a {
-            color: var(--muted);
-            font-size: 14px;
-            transition: var(--transition);
-        }
-        .footer-grid .col ul li a:hover {
-            color: var(--accent);
-        }
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(45, 31, 26, 0.04);
-            color: var(--muted-light);
-            font-size: 13px;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 1200px) {
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .categories-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 28px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            .hero {
-                min-height: 360px;
-                margin: 16px 16px 0;
-                padding: 40px 0;
-            }
-            .newsletter-wrap {
-                padding: 32px 28px;
-                flex-direction: column;
-                text-align: center;
-            }
-            .newsletter-wrap form {
-                max-width: 100%;
-            }
-            .search-wrap {
-                min-width: 140px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav.main-nav {
-                display: none;
-            }
-            .mobile-toggle {
-                display: grid;
-                place-items: center;
-            }
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            .hero h1 {
-                font-size: 28px;
-            }
-            .hero p {
-                font-size: 15px;
-            }
-            .section-header h2 {
-                font-size: 22px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .header-inner {
-                flex-wrap: nowrap;
-            }
-            .brand {
-                font-size: 18px;
-            }
-            .brand i {
-                font-size: 20px;
-            }
-            .search-wrap {
-                min-width: 110px;
-                padding: 0 10px 0 14px;
-            }
-            .search-wrap input {
-                font-size: 13px;
-                padding: 8px 0;
-            }
-            .header-actions .icon-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 15px;
-            }
-            .cart-count {
-                width: 18px;
-                height: 18px;
-                font-size: 10px;
-            }
-            .testimonial-card {
-                flex: 0 0 270px;
-            }
-            .hero .actions .btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-            .section {
-                padding: 36px 0;
-            }
-            .feature-banner {
-                flex-direction: column;
-                align-items: center;
-                border-radius: 40px 12px 40px 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .categories-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .hero {
-                margin: 10px 10px 0;
-                min-height: 280px;
-                padding: 28px 0;
-                border-radius: var(--radius-sm);
-            }
-            .hero h1 {
-                font-size: 24px;
-            }
-            .container {
-                padding: 0 14px;
-            }
-            .newsletter-wrap {
-                padding: 24px 18px;
-            }
-            .newsletter-wrap .text h3 {
-                font-size: 20px;
-            }
-            .product-card .body {
-                padding: 12px 12px 8px;
-            }
-            .product-card .body h5 {
-                font-size: 13px;
-            }
-            .product-card .body .price {
-                font-size: 15px;
-            }
-            .product-card .footer {
-                padding: 0 12px 12px;
-            }
-            .product-card .footer .add-btn {
-                font-size: 12px;
-                padding: 8px;
-            }
-            .cat-card {
-                padding: 16px 10px;
-            }
-            .cat-card .icon-wrap {
-                width: 44px;
-                height: 44px;
-                font-size: 18px;
-            }
-            .cat-card h4 {
-                font-size: 13px;
-            }
-        }
-    </style>
 </head>
 
 <body>
+<header>
+  <div class="container header-inner">
+    <button class="icon-btn mobile-btn" id="mobileToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <a class="brand" href="#">
+      <span class="brand-mark"><i class="fa-solid fa-feather-pointed"></i></span>
+      <span class="brand-name">Eternal <span>Jewellery</span></span>
+    </a>
 
-    <!-- ===== HEADER ===== -->
-    <header>
-        <div class="container header-inner">
-            <div style="display:flex;align-items:center;gap:12px;">
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <a class="brand" href="#">
-                    <i class="fas fa-saree"></i>
-                    <span>Eternal<span class="accent">Saree</span></span>
-                </a>
-            </div>
+    <nav id="desktopNav">
+      <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#weaves">Weaves</a></li>
+        <li><a href="#shop">Collection</a></li>
+        <li><a href="#story">Our Story</a></li>
+      </ul>
+    </nav>
 
-            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#categories"><i class="fas fa-th-large"></i> Weaves</a></li>
-                    <li><a href="#products"><i class="fas fa-fire"></i> Trending</a></li>
-                    <li><a href="#testimonials"><i class="fas fa-star"></i> Stories</a></li>
-                </ul>
-            </nav>
+    <div class="header-tools">
+      <label class="search" aria-label="Search jewellerys">
+        <input id="searchInput" type="search" placeholder="Search jewellerys...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+      <button class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Shopping bag">
+        <i class="fa-solid fa-bag-shopping"></i><span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;background:#fffdf9;border-top:1px solid var(--line)">
+    <div class="container" style="padding:12px 0 18px">
+      <div style="display:grid;gap:6px">
+        <a href="#home">Home</a><a href="#weaves">Weaves</a><a href="#shop">Collection</a><a href="#story">Our Story</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div class="search-wrap" role="search">
-                    <input type="search" id="searchInput" placeholder="Search saree..." aria-label="Search" />
-                    <button id="searchBtn" aria-label="Submit search"><i class="fas fa-search"></i></button>
-                </div>
-
-                <div class="header-actions">
-                    <button class="icon-btn" title="Account" aria-label="Account"><i class="far fa-user"></i></button>
-                    <button class="icon-btn" title="Wishlist" aria-label="Wishlist"><i class="far fa-heart"></i></button>
-                    <div class="cart-wrap">
-                        <button class="icon-btn" id="cartBtn" title="Cart" aria-label="Cart">
-                            <i class="fas fa-shopping-bag"></i>
-                        </button>
-                        <span class="cart-count" id="cartCount">0</span>
-                    </div>
-                </div>
-            </div>
+<main id="home">
+  <div class="container">
+    <section class="hero">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <div class="eyebrow">The festive edit · 2026</div>
+        <h1>Tradition, <em>reframed.</em></h1>
+        <p>Handpicked jewellerys that bring the richness of Indian textiles into a modern jewellery box — from quiet everyday cottons to statement golds.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="shopNow">Shop the collection <i class="fa-solid fa-arrow-right"></i></button>
+          <button class="btn btn-ghost" id="newArrivals">See new arrivals</button>
         </div>
+      </div>
+      <div class="hero-note"><i class="fa-solid fa-circle-check"></i> Curated Indian weaves</div>
+    </section>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu">
-            <div class="container">
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#categories"><i class="fas fa-th-large"></i> Weaves</a></li>
-                    <li><a href="#products"><i class="fas fa-fire"></i> Trending</a></li>
-                    <li><a href="#testimonials"><i class="fas fa-star"></i> Stories</a></li>
-                    <li><a href="#"><i class="far fa-user"></i> Account</a></li>
-                    <li><a href="#"><i class="far fa-heart"></i> Wishlist</a></li>
-                </ul>
-            </div>
+    <section class="intro">
+      <div>
+        <div class="kicker">Made to be remembered</div>
+        <h2>Every weave has a story.</h2>
+      </div>
+      <p>Explore classic silhouettes, rich textures and contemporary layers selected for celebrations, everyday elegance and everything in between.</p>
+    </section>
+
+    <section class="section" id="weaves">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Explore the weaves</h2>
+          <p>Start with a craft, a texture or a mood.</p>
         </div>
-    </header>
+        <a class="view-all" href="#shop">Shop all <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="category-grid" id="categoriesGrid"></div>
+    </section>
 
-    <!-- ===== MAIN ===== -->
-    <main>
-
-        <!-- HERO -->
-        <section class="hero" aria-label="Hero banner">
-            <div class="container">
-                <div class="badge"><i class="fas fa-sparkles"></i> Summer Collection 2026</div>
-                <h1>Elegance <br>woven in every drape</h1>
-                <p>Timeless silks, handloom cottons & designer weaves — crafted for the modern woman.</p>
-                <div class="actions">
-                    <button class="btn btn-primary" id="shopNow"><i class="fas fa-arrow-right"></i> Explore Now</button>
-                    <button class="btn btn-ghost" id="exploreDeals"><i class="fas fa-clock"></i> New Arrivals</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- CATEGORIES (weaves) -->
-        <section class="section" id="categories" aria-labelledby="cat-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="title-group">
-                        <h2 id="cat-title">Our Weaves</h2>
-                        <p>Discover the artistry of Indian handlooms</p>
-                    </div>
-                    <a href="#" class="view-all">All Weaves <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="categories-grid" id="categoriesGrid" aria-live="polite"></div>
-            </div>
-        </section>
-
-        <!-- PRODUCTS -->
-        <section class="section" id="products" aria-labelledby="prod-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="title-group">
-                        <h2 id="prod-title">Trending Now</h2>
-                        <p>Most loved sarees this season</p>
-                    </div>
-                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="products-grid" id="productsGrid" aria-live="polite"></div>
-            </div>
-        </section>
-
-        <!-- FEATURE BANNER -->
-        <section class="section" style="padding-top:0;">
-            <div class="container">
-                <div class="feature-banner">
-                    <div class="feature-item"><i class="fas fa-hand-sparkles"></i><span>Handwoven with care</span></div>
-                    <div class="feature-item"><i class="fas fa-truck"></i><span>Free shipping over ₹999</span></div>
-                    <div class="feature-item"><i class="fas fa-undo-alt"></i><span>Easy 7-day returns</span></div>
-                    <div class="feature-item"><i class="fas fa-gem"></i><span>Authentic weaves</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS -->
-        <section class="section" id="testimonials" aria-labelledby="test-title">
-            <div class="container">
-                <div class="section-header">
-                    <div class="title-group">
-                        <h2 id="test-title">What Our Customers Say</h2>
-                        <p>Real stories from real women</p>
-                    </div>
-                </div>
-                <div class="testimonials-scroll" id="testimonialsList"></div>
-            </div>
-        </section>
-
-        <!-- NEWSLETTER -->
-        <section class="section" aria-labelledby="news-title">
-            <div class="container">
-                <div class="newsletter-wrap">
-                    <div class="text">
-                        <h3 id="news-title">Stay in the Loop</h3>
-                        <p>Get exclusive offers, early access & new arrivals</p>
-                    </div>
-                    <form id="newsletterForm" onsubmit="return false;">
-                        <input type="email" id="newsletterEmail" placeholder="Enter your email" aria-label="Email" required />
-                        <button class="btn" id="subscribeBtn"><i class="fas fa-paper-plane"></i> Subscribe</button>
-                        <div id="newsletterMsg"></div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="brand-col">
-                    <div class="brand">
-                        <i class="fas fa-saree"></i>
-                        <span>Eternal<span class="accent">Saree</span></span>
-                    </div>
-                    <p>Celebrating the art of draping since 2005. Authentic weaves, timeless elegance.</p>
-                    <div class="socials">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col">
-                    <h5>Explore</h5>
-                    <ul>
-                        <li><a href="#">New arrivals</a></li>
-                        <li><a href="#">Best sellers</a></li>
-                        <li><a href="#">Gift sets</a></li>
-                        <li><a href="#">Wedding collection</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h5>Support</h5>
-                    <ul>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Track order</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Size guide</a></li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h5>Follow</h5>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-youtube" style="margin-right:8px;"></i>YouTube</a></li>
-                        <li><a href="#"><i class="fab fa-pinterest" style="margin-right:8px;"></i>Pinterest</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <i class="far fa-copyright"></i> 2026 Eternal Saree — woven with love.
-            </div>
+    <section class="section" id="shop">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Editor’s picks</h2>
+          <p>Eight standout layers, chosen for the season.</p>
         </div>
-    </footer>
+        <a class="view-all" href="#shop">View collection <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="products" id="productsGrid"></div>
+    </section>
 
-    <!-- ===== SCRIPT ===== -->
-    <script>
-        // ============================================================
-        // DATA
-        // ============================================================
-        const CATEGORIES = [
-            { id: 'silk', name: 'Silk', icon: 'fa-feather', count: 24 },
-            { id: 'cotton', name: 'Cotton', icon: 'fa-seedling', count: 18 },
-            { id: 'banarasi', name: 'Banarasi', icon: 'fa-crown', count: 16 },
-            { id: 'kanchipuram', name: 'Kanchipuram', icon: 'fa-temple', count: 22 },
-            { id: 'chanderi', name: 'Chanderi', icon: 'fa-star', count: 14 },
-            { id: 'designer', name: 'Designer', icon: 'fa-paint-brush', count: 20 }
-        ];
+    <section class="story" id="story">
+      <div class="story-image"></div>
+      <div class="story-content">
+        <div class="kicker">The Eternal Edit</div>
+        <h2>Rooted in craft. Styled for now.</h2>
+        <p>We bring together expressive Indian textiles and a clean, contemporary shopping experience — so choosing a jewellery feels as special as wearing one.</p>
+        <button class="btn btn-primary" id="storyBtn">Discover our story</button>
+      </div>
+    </section>
 
-        const PRODUCTS = [
-            { id: 1, title: 'Banarasi Silk Saree', price: 4299, oldPrice: 6500, rating: 5, reviews: 128, badge: 'New',
-                img: 'https://images.unsplash.com/photo-1624718621916-3fb29e3c1d96?auto=format&fit=crop&w=600&q=80',
-                category: 'Silk' },
-            { id: 2, title: 'Kanchipuram Temple Border', price: 5899, oldPrice: 8200, rating: 4, reviews: 86, badge: '',
-                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
-                category: 'Silk' },
-            { id: 3, title: 'Chanderi Cotton Saree', price: 2499, oldPrice: 3200, rating: 5, reviews: 214, badge: 'Sale',
-                img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80',
-                category: 'Cotton' },
-            { id: 4, title: 'Mysore Silk Crepe', price: 6999, oldPrice: 9500, rating: 4, reviews: 53, badge: '',
-                img: 'https://images.unsplash.com/photo-1627139946210-9fe3d9b0de1f?auto=format&fit=crop&w=600&q=80',
-                category: 'Silk' },
-            { id: 5, title: 'Paithani Peacock Motif', price: 7490, oldPrice: 10200, rating: 5, reviews: 42, badge: 'New',
-                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
-                category: 'Designer' },
-            { id: 6, title: 'Kota Doria Saree', price: 3199, oldPrice: 4600, rating: 5, reviews: 189, badge: '',
-                img: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80',
-                category: 'Cotton' },
-            { id: 7, title: 'Tussar Silk Saree', price: 3899, oldPrice: 5200, rating: 4, reviews: 67, badge: 'Sale',
-                img: 'https://images.unsplash.com/photo-1624718621916-3fb29e3c1d96?auto=format&fit=crop&w=600&q=80',
-                category: 'Silk' },
-            { id: 8, title: 'Handloom Ikat Saree', price: 4599, rating: 5, reviews: 156, badge: '',
-                img: 'https://images.unsplash.com/photo-1587995496058-3516c8e1b3db?auto=format&fit=crop&w=600&q=80',
-                category: 'Designer' }
-        ];
+    <section class="benefits" aria-label="Shopping benefits">
+      <div class="benefit"><i class="fa-solid fa-hands"></i><div><strong>Craft-led selection</strong><span>Thoughtfully curated weaves</span></div></div>
+      <div class="benefit"><i class="fa-solid fa-truck-fast"></i><div><strong>Free shipping</strong><span>On orders over ₹999</span></div></div>
+      <div class="benefit"><i class="fa-solid fa-rotate-left"></i><div><strong>Easy returns</strong><span>7-day return window</span></div></div>
+      <div class="benefit"><i class="fa-solid fa-gem"></i><div><strong>Authentic styles</strong><span>Made for modern jewellery boxs</span></div></div>
+    </section>
 
-        const TESTIMONIALS = [{
-            name: 'Ananya Sharma',
-            role: 'Verified Buyer',
-            avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=80&q=80',
-            text: 'The Banarasi silk is absolutely stunning! The zari work is exquisite and the fabric feels premium.',
-            stars: 5
-        }, {
-            name: 'Priya Mehta',
-            role: 'Frequent Shopper',
-            avatar: 'https://images.unsplash.com/photo-1494790108378-be9c29b29330?auto=format&fit=crop&w=80&q=80',
-            text: 'I love the Chanderi cotton saree — lightweight and perfect for summer. The colors are even more beautiful in person.',
-            stars: 5
-        }, {
-            name: 'Sneha Reddy',
-            role: 'Wedding Guest',
-            avatar: 'https://images.unsplash.com/photo-1546456073-6712f79251bb?auto=format&fit=crop&w=80&q=80',
-            text: 'Ordered the Kanchipuram for my sister\'s wedding. The temple border is magnificent and the quality is top-notch.',
-            stars: 5
-        }, {
-            name: 'Kavya Nair',
-            role: 'Designer',
-            avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80',
-            text: 'The Paithani saree is a masterpiece. The peacock motifs are intricately woven and it drapes like a dream.',
-            stars: 5
-        }];
+    <section class="section" id="reviews">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Worn & loved</h2>
+          <p>Notes from the Eternal Jewels community.</p>
+        </div>
+      </div>
+      <div class="reviews" id="reviewsGrid"></div>
+    </section>
 
-        // ============================================================
-        // STATE
-        // ============================================================
-        let cartCount = 0;
+    <section class="section" style="padding-top:0">
+      <div class="newsletter">
+        <div>
+          <h2>Stay close to the weave.</h2>
+          <p>New drops, festive edits and occasional offers — straight to your inbox.</p>
+        </div>
+        <div style="width:100%;max-width:470px">
+          <form id="newsletterForm">
+            <input id="newsletterEmail" type="email" placeholder="Your email address" required>
+            <button class="btn" type="submit">Join the list</button>
+          </form>
+          <div id="newsletterMsg"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
 
-        // ============================================================
-        // DOM REFS
-        // ============================================================
-        const categoriesGrid = document.getElementById('categoriesGrid');
-        const productsGrid = document.getElementById('productsGrid');
-        const cartCountEl = document.getElementById('cartCount');
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.getElementById('searchBtn');
-        const mobileToggle = document.getElementById('mobileToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const newsletterForm = document.getElementById('newsletterForm');
-        const newsletterEmail = document.getElementById('newsletterEmail');
-        const newsletterMsg = document.getElementById('newsletterMsg');
-        const testimonialsList = document.getElementById('testimonialsList');
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#"><span class="brand-mark"><i class="fa-solid fa-feather-pointed"></i></span><span class="brand-name">Eternal <span>Jewellery</span></span></a>
+        <p>Indian textiles, thoughtfully curated for women who want tradition to feel effortless and current.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div><h4>Shop</h4><ul><li><a href="#shop">New arrivals</a></li><li><a href="#shop">Best sellers</a></li><li><a href="#weaves">Silks</a></li><li><a href="#weaves">Cottons</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="#">Contact</a></li><li><a href="#">Track order</a></li><li><a href="#">Returns</a></li><li><a href="#">Shipping</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#story">Our story</a></li><li><a href="#">Journal</a></li><li><a href="#">Craftspeople</a></li><li><a href="#">Care guide</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Eternal Jewels</span><span>Designed around Indian craft & contemporary style.</span></div>
+  </div>
+</footer>
 
-        // ============================================================
-        // RENDER FUNCTIONS
-        // ============================================================
-        function renderCategories() {
-            categoriesGrid.innerHTML = '';
-            CATEGORIES.forEach(cat => {
-                const el = document.createElement('div');
-                el.className = 'cat-card';
-                el.innerHTML = `
-                    <div class="icon-wrap"><i class="fas ${cat.icon}"></i></div>
-                    <h4>${cat.name}</h4>
-                    <div class="count">${cat.count} items</div>
-                `;
-                el.addEventListener('click', () => {
-                    searchInput.value = cat.name;
-                    filterProducts(cat.name);
-                    document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-                categoriesGrid.appendChild(el);
-            });
-        }
+<div class="toast" id="toast"></div>
 
-        function renderProducts(list) {
-            productsGrid.innerHTML = '';
-            if (!list.length) {
-                productsGrid.innerHTML =
-                `<p style="grid-column:1/-1;text-align:center;padding:40px;color:var(--muted);">No sarees found.</p>`;
-                return;
-            }
-            list.forEach(p => {
-                const el = document.createElement('article');
-                el.className = 'product-card';
-                const badgeClass = p.badge === 'Sale' ? 'sale' : '';
-                const badgeHtml = p.badge ? `<span class="badge ${badgeClass}">${p.badge}</span>` : '';
-                const oldPriceHtml = p.oldPrice ? `<span class="old-price">₹${p.oldPrice.toLocaleString()}</span>` :
-                '';
-                const stars = '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating));
-                el.innerHTML = `
-                    <div class="img-wrap">
-                        <img src="${p.img}" alt="${escapeHtml(p.title)}" loading="lazy">
-                        ${badgeHtml}
-                        <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                    <div class="body">
-                        <div class="category-tag">${p.category}</div>
-                        <h5>${escapeHtml(p.title)}</h5>
-                        <div class="price-row">
-                            <span class="price">₹${p.price.toLocaleString()}</span>
-                            ${oldPriceHtml}
-                        </div>
-                        <div class="rating">
-                            ${stars} <span>(${p.reviews})</span>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <button class="add-btn" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Add</button>
-                    </div>
-                `;
-                productsGrid.appendChild(el);
-            });
+<script>
+const CATEGORIES = [
+  {name:"Silk",count:24,img:"https://images.pexels.com/photos/1091930/pexels-photo-1091930.jpeg?auto=compress&cs=tinysrgb&w=900"},
+  {name:"Cotton",count:18,img:"https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=900"},
+  {name:"Bridal Gold",count:16,img:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=900"},
+  {name:"Kanchipuram",count:22,img:"https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=900"},
+  {name:"Chanderi",count:14,img:"https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?auto=compress&cs=tinysrgb&w=900"},
+  {name:"Designer",count:20,img:"https://images.pexels.com/photos/1097663/pexels-photo-1097663.jpeg?auto=compress&cs=tinysrgb&w=900"}
+];
 
-            // Add to cart listeners
-            productsGrid.querySelectorAll('.add-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const id = Number(this.dataset.id);
-                    addToCart(id, this);
-                });
-            });
-        }
+const PRODUCTS = [
+  {id:1,title:"Crimson Bridal Gold Silk",price:4299,old:6500,category:"Bridal Gold",badge:"New",img:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=900",rating:5,reviews:128},
+  {id:2,title:"Rose Temple Border",price:5899,old:8200,category:"Kanchipuram",badge:"Bestseller",img:"https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=900",rating:5,reviews:86},
+  {id:3,title:"Ivory Chanderi",price:2499,old:3200,category:"Chanderi",badge:"Sale",img:"https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=900",rating:5,reviews:214},
+  {id:4,title:"Emerald Silk Draped",price:6999,old:9500,category:"Silk",badge:"Limited",img:"https://images.pexels.com/photos/1091930/pexels-photo-1091930.jpeg?auto=compress&cs=tinysrgb&w=900",rating:4,reviews:53},
+  {id:5,title:"Festive Red & Gold",price:7490,old:10200,category:"Designer",badge:"New",img:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=1200",rating:5,reviews:42},
+  {id:6,title:"Garden Green Jewellery",price:3199,old:4600,category:"Cotton",badge:"",img:"https://images.pexels.com/photos/1454171/pexels-photo-1454171.jpeg?auto=compress&cs=tinysrgb&w=900",rating:5,reviews:189},
+  {id:7,title:"Classic Crimson Drape",price:3899,old:5200,category:"Silk",badge:"Sale",img:"https://images.pexels.com/photos/1091930/pexels-photo-1091930.jpeg?auto=compress&cs=tinysrgb&w=900",rating:4,reviews:67},
+  {id:8,title:"Contemporary Jewellery Edit",price:4599,old:0,category:"Designer",badge:"",img:"https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=900",rating:5,reviews:156}
+];
 
-        function renderTestimonials() {
-            testimonialsList.innerHTML = '';
-            TESTIMONIALS.forEach(t => {
-                const stars = '★'.repeat(t.stars) + '☆'.repeat(5 - t.stars);
-                const el = document.createElement('div');
-                el.className = 'testimonial-card';
-                el.innerHTML = `
-                    <div class="stars">${stars}</div>
-                    <blockquote>“${escapeHtml(t.text)}”</blockquote>
-                    <div class="author">
-                        <img class="avatar" src="${t.avatar}" alt="${escapeHtml(t.name)}" loading="lazy">
-                        <div>
-                            <div class="name">${escapeHtml(t.name)}</div>
-                            <div class="role">${escapeHtml(t.role)}</div>
-                        </div>
-                    </div>
-                `;
-                testimonialsList.appendChild(el);
-            });
-        }
+const REVIEWS = [
+  {name:"Ananya Sharma",role:"Verified buyer",avatar:"https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=900",text:"The Bridal Gold is even more beautiful in person. The layer, texture and finishing feel genuinely special."},
+  {name:"Priya Mehta",role:"Frequent shopper",avatar:"https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=900",text:"I wanted something elegant but easy to wear. The Chanderi turned out to be exactly that."},
+  {name:"Sneha Reddy",role:"Wedding guest",avatar:"https://images.pexels.com/photos/248077/pexels-photo-248077.jpeg?auto=compress&cs=tinysrgb&w=900",text:"The temple border was the highlight of my outfit. Beautiful quality and a lovely shopping experience."}
+];
 
-        // ============================================================
-        // UTILITY FUNCTIONS
-        // ============================================================
-        function escapeHtml(text) {
-            return String(text).replace(/[&<>"']/g, s => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#39;'
-            } [s]));
-        }
+let cartCount = 0;
+const productsGrid = document.getElementById("productsGrid");
+const categoriesGrid = document.getElementById("categoriesGrid");
+const reviewsGrid = document.getElementById("reviewsGrid");
+const searchInput = document.getElementById("searchInput");
+const toast = document.getElementById("toast");
 
-        function updateCartCount() {
-            cartCountEl.textContent = cartCount;
-            cartCountEl.style.transform = 'scale(1.3)';
-            setTimeout(() => cartCountEl.style.transform = 'scale(1)', 200);
-        }
+function money(n){return "₹"+n.toLocaleString("en-IN")}
+function stars(n){return "★".repeat(n)+"☆".repeat(5-n)}
+function showToast(message){
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer=setTimeout(()=>toast.classList.remove("show"),2200);
+}
 
-        function addToCart(productId, btnEl) {
-            const p = PRODUCTS.find(x => x.id === productId);
-            if (!p) return;
-            cartCount++;
-            updateCartCount();
+function renderCategories(){
+  categoriesGrid.innerHTML=CATEGORIES.map(c=>`
+    <article class="category" data-category="${c.name}">
+      <img src="${c.img}" alt="${c.name} jewellery collection" loading="lazy">
+      <div class="category-info"><h3>${c.name}</h3><span>${c.count} pieces</span></div>
+    </article>`).join("");
+  categoriesGrid.querySelectorAll(".category").forEach(el=>{
+    el.addEventListener("click",()=>{
+      searchInput.value=el.dataset.category;
+      filterProducts(el.dataset.category);
+      document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+    });
+  });
+}
 
-            if (btnEl) {
-                const orig = btnEl.innerHTML;
-                btnEl.innerHTML = '<i class="fas fa-check"></i> Added';
-                btnEl.classList.add('added');
-                setTimeout(() => {
-                    btnEl.innerHTML = orig;
-                    btnEl.classList.remove('added');
-                }, 1500);
-            }
-            const cartBtn = document.getElementById('cartBtn');
-            cartBtn.style.color = 'var(--accent)';
-            setTimeout(() => cartBtn.style.color = '', 400);
-        }
+function renderProducts(list){
+  if(!list.length){
+    productsGrid.innerHTML='<div class="empty">No jewellerys match your search. Try “gold”, “cotton” or “designer”.</div>';
+    return;
+  }
+  productsGrid.innerHTML=list.map(p=>`
+    <article class="product">
+      <div class="product-media">
+        <img src="${p.img}" alt="${p.title}" loading="lazy">
+        ${p.badge?`<span class="pill ${p.badge==="Sale"?"sale":""}">${p.badge}</span>`:""}
+        <button class="wish" aria-label="Add ${p.title} to wishlist"><i class="fa-regular fa-heart"></i></button>
+      </div>
+      <div class="product-body">
+        <div class="product-category">${p.category}</div>
+        <h3>${p.title}</h3>
+        <div class="price-row"><span class="price">${money(p.price)}</span>${p.old?`<span class="old">${money(p.old)}</span>`:""}</div>
+        <div class="rating">${stars(p.rating)} <span>(${p.reviews})</span></div>
+      </div>
+      <button class="add" data-id="${p.id}"><i class="fa-solid fa-plus"></i> Add to bag</button>
+    </article>`).join("");
 
-        function filterProducts(query) {
-            const q = String(query || '').trim().toLowerCase();
-            if (!q) {
-                renderProducts(PRODUCTS);
-                return;
-            }
-            const filtered = PRODUCTS.filter(p =>
-                p.title.toLowerCase().includes(q) ||
-                p.category.toLowerCase().includes(q)
-            );
-            renderProducts(filtered);
-        }
+  productsGrid.querySelectorAll(".add").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      cartCount++;
+      document.getElementById("cartCount").textContent=cartCount;
+      btn.classList.add("added");
+      btn.innerHTML='<i class="fa-solid fa-check"></i> Added';
+      showToast("Added to your bag");
+      setTimeout(()=>{btn.classList.remove("added");btn.innerHTML='<i class="fa-solid fa-plus"></i> Add to bag'},1300);
+    });
+  });
+}
 
-        // ============================================================
-        // EVENT BINDINGS
-        // ============================================================
+function renderReviews(){
+  reviewsGrid.innerHTML=REVIEWS.map(r=>`
+    <article class="review">
+      <div class="review-stars">★★★★★</div>
+      <p>“${r.text}”</p>
+      <div class="review-user">
+        <img class="avatar" src="${r.avatar}" alt="${r.name}" loading="lazy">
+        <div><strong>${r.name}</strong><span>${r.role}</span></div>
+      </div>
+    </article>`).join("");
+}
 
-        // Search
-        searchBtn.addEventListener('click', () => filterProducts(searchInput.value));
-        searchInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') filterProducts(e.target.value);
-        });
+function filterProducts(query){
+  const q=query.trim().toLowerCase();
+  renderProducts(PRODUCTS.filter(p=>!q || p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)));
+}
 
-        // Mobile menu
-        mobileToggle.addEventListener('click', () => {
-            const isOpen = mobileMenu.style.display === 'block';
-            mobileMenu.style.display = isOpen ? 'none' : 'block';
-            mobileToggle.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-        });
+searchInput.addEventListener("input",()=>filterProducts(searchInput.value));
+document.getElementById("shopNow").addEventListener("click",()=>document.getElementById("shop").scrollIntoView({behavior:"smooth"}));
+document.getElementById("newArrivals").addEventListener("click",()=>{searchInput.value="";renderProducts(PRODUCTS.filter(p=>p.badge==="New"));document.getElementById("shop").scrollIntoView({behavior:"smooth"})});
+document.getElementById("storyBtn").addEventListener("click",()=>showToast("Our story page is coming soon"));
+document.getElementById("cartBtn").addEventListener("click",()=>showToast(cartCount?`Your bag has ${cartCount} item${cartCount>1?"s":""}`:"Your bag is empty"));
 
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
+document.getElementById("newsletterForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const email=document.getElementById("newsletterEmail");
+  const msg=document.getElementById("newsletterMsg");
+  if(!email.value.includes("@")){msg.textContent="Please enter a valid email.";return}
+  msg.textContent="Thank you — you’re on the list.";
+  email.value="";
+});
 
-        // Hero buttons
-        document.getElementById('shopNow').addEventListener('click', () => {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        document.getElementById('exploreDeals').addEventListener('click', () => {
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
+const mobileToggle=document.getElementById("mobileToggle");
+const mobileMenu=document.getElementById("mobileMenu");
+mobileToggle.addEventListener("click",()=>{
+  const open=mobileMenu.style.display==="block";
+  mobileMenu.style.display=open?"none":"block";
+  mobileToggle.innerHTML=open?'<i class="fa-solid fa-bars"></i>':'<i class="fa-solid fa-xmark"></i>';
+});
+mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  mobileMenu.style.display="none";
+  mobileToggle.innerHTML='<i class="fa-solid fa-bars"></i>';
+}));
 
-        // Cart button click
-        document.getElementById('cartBtn').addEventListener('click', () => {
-            alert(`🛒 Your cart has ${cartCount} item${cartCount !== 1 ? 's' : ''}.`);
-        });
-
-        // Newsletter
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterEmail.value.trim();
-            if (!email || !email.includes('@')) {
-                newsletterMsg.textContent = 'Please enter a valid email address.';
-                newsletterMsg.style.color = '#ffb3b3';
-                newsletterMsg.style.display = 'block';
-                return;
-            }
-            newsletterMsg.textContent = '🎉 Thanks for subscribing!';
-            newsletterMsg.style.color = '#a8e6cf';
-            newsletterMsg.style.display = 'block';
-            newsletterEmail.value = '';
-            setTimeout(() => {
-                newsletterMsg.style.display = 'none';
-            }, 3500);
-        });
-
-        // Year in footer
-        document.getElementById('year')?.remove();
-        const yearSpan = document.createElement('span');
-        yearSpan.textContent = new Date().getFullYear();
-        document.querySelector('.footer-bottom')?.prepend(yearSpan);
-
-        // ============================================================
-        // INIT
-        // ============================================================
-        renderCategories();
-        renderProducts(PRODUCTS);
-        renderTestimonials();
-        updateCartCount();
-
-        // Close mobile menu on resize to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                mobileMenu.style.display = 'none';
-                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
-        });
-
-        console.log('✨ Eternal Saree — timeless elegance loaded.');
-    </script>
-
+document.getElementById("year").textContent=new Date().getFullYear();
+renderCategories();
+renderProducts(PRODUCTS);
+renderReviews();
+</script>
 </body>
 </html>
