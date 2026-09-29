@@ -1660,7 +1660,7 @@
       </div>
       <div class="modal-content">
         <div class="modal-category" id="modalCategory"></div>
-        <h2 class="modal-title" id="modalTitle"></h2>
+       <h2 class="modal-title" id="modalTitle">Product details</h2>
         <div class="modal-rating" id="modalRating"></div>
         <div class="modal-price-row">
           <span class="modal-price" id="modalPrice"></span>
